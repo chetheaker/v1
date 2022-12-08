@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { commandList } from '../../stores/commandList';
+  import { verifyCommand } from '../../utils/terminal';
 
   let input: HTMLInputElement;
 
@@ -8,15 +9,13 @@
 
   const handleCommand = () => {
     if (!input.value) return;
+    const response = verifyCommand(input.value);
     const newCommand = {
       content: input.value,
       isInput: true
     };
-    commandList.update((prev) => [
-      ...prev,
-      newCommand,
-      { isInput: false, content: 'response: ' }
-    ]);
+
+    commandList.update((prev) => [...prev, newCommand, response]);
     input.value = '';
   };
 </script>
@@ -42,6 +41,10 @@
     width: 100%;
     font-size: 1rem;
     margin: 0.15rem 0;
+  }
+
+  i {
+    font-size: 0.8rem;
   }
 
   form {
