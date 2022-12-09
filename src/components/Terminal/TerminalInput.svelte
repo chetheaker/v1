@@ -9,13 +9,20 @@
 
   const handleCommand = () => {
     if (!input.value) return;
-    const response = verifyCommand(input.value);
-    const newCommand = {
-      content: input.value,
-      isInput: true
-    };
-
-    commandList.update((prev) => [...prev, newCommand, response]);
+    if (input.value === 'clear') {
+      commandList.set([]);
+    } else {
+      const response = verifyCommand(input.value);
+      const newCommand = {
+        content: input.value,
+        isInput: true
+      };
+      if (Array.isArray(response)) {
+        commandList.update((prev) => [...prev, newCommand, ...response]);
+      } else {
+        commandList.update((prev) => [...prev, newCommand, response]);
+      }
+    }
     input.value = '';
   };
 </script>

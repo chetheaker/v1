@@ -1,9 +1,37 @@
-const commandDict = {
-  help: true,
-  clear: true,
-  github: () => window.open('https://github.com/chetheaker', '_blank'),
-  linkedin: true
+export const initialMessage = {
+  isValid: true,
+  isInput: false,
+  content:
+    "welcome to the terminal, type a command to get started... for a list of commands type 'help'"
 };
+
+class HelpCommand {
+  isValid = true;
+  isInput = false;
+  content: string;
+  delay: number;
+  isIndent: boolean;
+
+  constructor(content: string, delay: number, isIndent: boolean) {
+    this.content = content;
+    this.delay = delay;
+    this.isIndent = isIndent;
+  }
+}
+
+const helpCommands = [
+  new HelpCommand('here are some commands to run:', 0, false),
+  new HelpCommand('start - show start message', 300, true),
+  new HelpCommand('clear - clear terminal', 600, true),
+  new HelpCommand('github - show github profile', 900, true),
+  new HelpCommand('linkedin - show linkedin profile', 1200, true),
+  new HelpCommand('leetcode - show leetcode profile', 1500, true),
+  new HelpCommand(
+    '––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––',
+    1800,
+    false
+  )
+];
 
 export const verifyCommand = (command: string) => {
   let link: string;
@@ -17,6 +45,10 @@ export const verifyCommand = (command: string) => {
     case 'leetcode':
       link = 'https://leetcode.com/chetheaker';
       break;
+    case 'help':
+      return helpCommands;
+    case 'start':
+      return initialMessage;
     default:
       return { isValid: false, isInput: false, content: command };
   }

@@ -1,4 +1,7 @@
 import { writable } from 'svelte/store';
 import type { Command } from '../types/command';
+import { initialMessage } from '../utils/terminal';
 
-export const commandList = writable<Command[]>([]);
+const initial = [initialMessage];
+
+export const commandList = writable<Command[]>(initial);

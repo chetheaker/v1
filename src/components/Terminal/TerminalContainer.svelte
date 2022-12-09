@@ -1,5 +1,6 @@
 <script lang="ts">
   import { commandList } from '../../stores/commandList';
+  import Typing from '../Animations/Typing.svelte';
 </script>
 
 <div class="terminal-command-list">
@@ -10,17 +11,31 @@
       {:else if !command.isValid}
         <p><span class="error">Terminal:</span> Command not found:</p>
       {/if}
-      <p>{command.content}</p>
+      {#if !command.isInput && command.isValid}
+        <Typing element="p" delay={command.delay} isIndent={command.isIndent}>
+          {command.content}
+        </Typing>
+      {:else}
+        <p>{command.content}</p>
+      {/if}
       {#if command.link}
-        <a href={command.link} target="_blank" rel="noreferrer"
-          >{command.link}</a
+        <Typing
+          element="a"
+          link={command.link}
+          delay={800}
+          isIndent={command.isIndent}
         >
+          {command.link}
+        </Typing>
       {/if}
     </div>
   {/each}
 </div>
 
 <style>
+  .terminal-command-list {
+    overflow-x: hidden;
+  }
   .command {
     display: flex;
     align-items: center;
@@ -35,14 +50,5 @@
 
   i {
     font-size: 0.8rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
-  }
-  a:hover {
-    text-decoration: underline;
   }
 </style>

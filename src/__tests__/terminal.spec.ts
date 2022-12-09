@@ -1,6 +1,7 @@
 import Terminal__SvelteComponent_ from '../components/Terminal/Terminal.svelte';
 import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/svelte';
+import { commandList } from '../stores/commandList';
 
 const beforeEach = async (inputStr: string) => {
   const { container, getByRole, findAllByText } = render(
@@ -46,8 +47,7 @@ describe('Terminal', () => {
   it('should produce 2 command list items for each input (input and response)', async () => {
     const { container } = await beforeEach('commandline');
     const commandItems = container.getElementsByClassName('command');
-
-    expect(commandItems.length).toBe(8);
+    expect(commandItems.length).toBe(9);
   });
 
   it('should respond with an error if an unknown command is entered', async () => {
@@ -67,26 +67,60 @@ describe('Terminal', () => {
     expect(errors.length).toBe(5);
   });
 
-  it('should display a link to github with the command github', async () => {
-    const { container } = await beforeEach('github');
-    const links = container.getElementsByTagName('a');
+  it('should clear the terminal with the command: clear', async () => {
+    const { container } = await beforeEach('clear');
+    const commands = container.getElementsByClassName('command');
 
-    expect(links.length).toBe(1);
-    expect(links[0].textContent).toBe('https://github.com/chetheaker');
+    expect(commands.length).toBe(0);
   });
 
-  it('should display a link to github with the command github', async () => {
-    const { container } = await beforeEach('linkedin');
-    const links = container.getElementsByTagName('a');
+  it('should show the start message with the command: start', async () => {
+    const { container } = await beforeEach('start');
 
-    expect(links.length).toBe(2);
-    expect(links[1].textContent).toBe('https://linkedin.com/in/chetheaker');
+    const commands = container.getElementsByClassName('command');
+    expect(commands.length).toBe(2);
+    let commandsStore;
+    commandList.subscribe((value) => (commandsStore = value));
+
+    // testing that start command has been successfully added to store
+    expect(commandsStore[1].content).toBe(
+      "welcome to the terminal, type a command to get started... for a list of commands type 'help'"
+    );
   });
-  it('should display a link to github with the command github', async () => {
-    const { container } = await beforeEach('leetcode');
-    const links = container.getElementsByTagName('a');
 
-    expect(links.length).toBe(3);
-    expect(links[2].textContent).toBe('https://leetcode.com/chetheaker');
+  it('should show the help options with the command: help', async () => {
+    const { container, getByRole } = await beforeEach('help');
+    const commands = container.getElementsByClassName('command');
+    expect(commands.length).toBeGreaterThan(8); // change this to exact number when finished
+
+    let commandsStore;
+    commandList.subscribe((value) => (commandsStore = value));
+
+    // verifying first help command
+    expect(commandsStore[2].content).toBe('help');
+    expect(commandsStore[3].content).toBe('here are some commands to run:');
+    expect(commandsStore[4].content).toBe('start - show start message');
+    expect(commandsStore[5].content).toBe('clear - clear terminal');
+    expect(commandsStore[6].content).toBe('github - show github profile');
+    expect(commandsStore[7].content).toBe('linkedin - show linkedin profile');
+    expect(commandsStore[8].content).toBe('leetcode - show leetcode profile');
+    const input = getByRole('textbox') as HTMLInputElement;
+    await fireEvent.input(input, { target: { value: 'clear' } });
+    await fireEvent.submit(input);
+  });
+
+  it('should indent the list of commands with the command: help', async () => {
+    await beforeEach('help');
+
+    let commandsStore;
+    commandList.subscribe((value) => (commandsStore = value));
+
+    expect(commandsStore[0].isIndent).toBeUndefined();
+    expect(commandsStore[1].isIndent).toBe(false);
+    expect(commandsStore[2].isIndent).toBe(true);
+    expect(commandsStore[3].isIndent).toBe(true);
+    expect(commandsStore[4].isIndent).toBe(true);
+    expect(commandsStore[5].isIndent).toBe(true);
+    expect(commandsStore[6].isIndent).toBe(true);
   });
 });

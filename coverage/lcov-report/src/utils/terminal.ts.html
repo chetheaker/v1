@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/Terminal/TerminalInput.svelte</title>
+    <title>Code coverage report for src/utils/terminal.ts</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../prettify.css" />
-    <link rel="stylesheet" href="../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/Terminal</a> TerminalInput.svelte</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/utils</a> terminal.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.83% </span>
+                <span class="strong">59.09% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>65/74</span>
+                <span class='fraction'>13/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.33% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/24</span>
+                <span class='fraction'>3/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.22% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>13/18</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.75% </span>
+                <span class="strong">57.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>60/64</span>
+                <span class='fraction'>12/21</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -125,130 +125,139 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span></td><td class="text"><pre class="prettyprint lang-js">&lt;script lang="ts"&gt;
-  import { onMount } from 'svelte';
-  import { commandList } from '../../stores/commandList';
-  import { verifyCommand } from '../../utils/terminal';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const initialMessage = {
+  isValid: true,
+  isInput: false,
+  content:
+    "welcome to the terminal, type a command to get started... for a list of commands type 'help'"
+};
 &nbsp;
-  let input: HTMLInputElement;
+class HelpCommand {
+  isValid = true;
+  isInput = false;
+  content: string;
+  delay: number;
+  isIndent: boolean;
 &nbsp;
-  onMount(() =&gt; input.focus());
+  constructor(content: string, delay: number, isIndent: boolean) {
+    this.content = content;
+    this.delay = delay;
+    this.isIndent = isIndent;
+  }
+}
 &nbsp;
-  const handleCommand = () =&gt; {
-    if (!input.value) return;
-    if (input.value === 'clear') {
-      commandList.set([]);
-    } else {
-      const response = verifyCommand(input.value);
-      const newCommand = {
-        content: input.value,
-        isInput: true
-      };
-      if (Array.isArray(response)) {
-        commandList.update((prev) =&gt; [...prev, newCommand, ...response]);
-      } else {
-        commandList.update((prev) =&gt; [...prev, newCommand, response]);
-      }
-    }
-    input.value = '';
-  };
-&lt;/script&gt;
+const helpCommands = [
+  new HelpCommand('here are some commands to run:', 0, false),
+  new HelpCommand('start - show start message', 300, true),
+  new HelpCommand('clear - clear terminal', 600, true),
+  new HelpCommand('github - show github profile', 900, true),
+  new HelpCommand('linkedin - show linkedin profile', 1200, true),
+  new HelpCommand('leetcode - show leetcode profile', 1500, true),
+  new HelpCommand(
+    '––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––',
+    1800,
+    false
+  )
+];
 &nbsp;
-&lt;form on:submit|preventDefault={handleCommand}&gt;
-  &lt;i class="fa-solid fa-chevron-right" /&gt;
-  &lt;input
-    bind:this={input}
-    on:blur={() =&gt; input.focus()}
-    spellcheck="false"
-    autocomplete="false"
-  /&gt;<span class="fstat-no" title="function not covered" ></span>
-&lt;/f<span class="cstat-no" title="statement not covered" >orm&gt;</span>
-&nbsp;
-&lt;style&gt;
-  input {
-    font-family: 'SF Mono', monospace;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: #e1e1e2;
-   <span class="missing-if-branch" title="else path not taken" >E</span> padding: 0rem 0.5rem;
-    width: 100%;
-    font-size: 1rem;
-    margin: 0.15rem 0;
+export const verifyCommand = (command: string) =&gt; {
+  let link: string;
+  switch (command) {
+<span class="branch-0 cbranch-no" title="branch not covered" >    case 'github':</span>
+<span class="cstat-no" title="statement not covered" >      link = 'https://github.com/chetheaker';</span>
+<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="branch-1 cbranch-no" title="branch not covered" >    case 'linkedin':</span>
+<span class="cstat-no" title="statement not covered" >      link = 'https://linkedin.com/in/chetheaker';</span>
+<span class="cstat-no" title="statement not covered" >      break;</span>
+<span class="branch-2 cbranch-no" title="branch not covered" >    case 'leetcode':</span>
+<span class="cstat-no" title="statement not covered" >      link = 'https://leetcode.com/chetheaker';</span>
+<span class="cstat-no" title="statement not covered" >      break;</span>
+    case 'help':
+      return helpCommands;
+    case 'start':
+      return initialMessage;
+    default:
+      return { isValid: false, isInput: false, content: command };
   }
 &nbsp;
-  i {
-    font-size: 0.8rem;
+<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (link) {</span>
+<span class="cstat-no" title="statement not covered" >    window.open(link, '_blank');</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      isValid: true,
+      isInput: false,
+      content: `check out my ${command} at`,
+      link
+    };
   }
-&nbsp;
-  form {
-    width: 100%;
-    display: flex;
-   <span class="missing-if-branch" title="if path not taken" >I</span> align-items: c<span class="cstat-no" title="statement not covered" >enter;</span>
-  }
-&lt;/style&gt;
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -258,14 +267,14 @@
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2022-12-09T10:29:59.718Z
             </div>
-        <script src="../../../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../sorter.js"></script>
-        <script src="../../../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     
