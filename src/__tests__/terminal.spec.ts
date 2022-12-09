@@ -123,4 +123,82 @@ describe('Terminal', () => {
     expect(commandsStore[5].isIndent).toBe(true);
     expect(commandsStore[6].isIndent).toBe(true);
   });
+
+  // tab feature
+
+  it('should autocomplete to help on tab for the command: h', async () => {
+    const { getByRole } = await beforeEach('clear');
+
+    const input = getByRole('textbox') as HTMLInputElement;
+    await fireEvent.input(input, { target: { value: 'h' } });
+    await fireEvent.keyDown(input, { key: 'Tab' });
+
+    expect(input.value).toBe('help');
+  });
+
+  it('should autocomplete to start on tab for the command: st', async () => {
+    const { getByRole } = await beforeEach('clear');
+
+    const input = getByRole('textbox') as HTMLInputElement;
+    await fireEvent.input(input, { target: { value: 'st' } });
+    await fireEvent.keyDown(input, { key: 'Tab' });
+
+    expect(input.value).toBe('start');
+  });
+
+  it('should autocomplete to github on tab for the command: git', async () => {
+    const { getByRole } = await beforeEach('clear');
+
+    const input = getByRole('textbox') as HTMLInputElement;
+    await fireEvent.input(input, { target: { value: 'git' } });
+    await fireEvent.keyDown(input, { key: 'Tab' });
+
+    expect(input.value).toBe('github');
+  });
+
+  it('should autocomplete to clear on tab for the command: cl', async () => {
+    const { getByRole } = await beforeEach('clear');
+
+    const input = getByRole('textbox') as HTMLInputElement;
+    await fireEvent.input(input, { target: { value: 'cl' } });
+    await fireEvent.keyDown(input, { key: 'Tab' });
+
+    expect(input.value).toBe('clear');
+  });
+
+  it('should not autocomplete if the input is empty', async () => {
+    const { getByRole } = await beforeEach('clear');
+
+    const input = getByRole('textbox') as HTMLInputElement;
+    await fireEvent.keyDown(input, { key: 'Tab' });
+
+    expect(input.value).toBe('');
+  });
+
+  it('should not autocomplete if the input is unkown', async () => {
+    const { getByRole } = await beforeEach('clear');
+
+    const input = getByRole('textbox') as HTMLInputElement;
+    await fireEvent.input(input, { target: { value: 'dsklfhl' } });
+    await fireEvent.keyDown(input, { key: 'Tab' });
+
+    expect(input.value).toBe('dsklfhl');
+  });
+
+  it('should rotate through options if autocomplete has mutliple possibilities', async () => {
+    const { getByRole } = await beforeEach('clear');
+
+    const input = getByRole('textbox') as HTMLInputElement;
+    await fireEvent.input(input, { target: { value: 'l' } });
+    await fireEvent.keyDown(input, { key: 'Tab' });
+
+    // TODO change this test when ls command is configured
+    expect(input.value).toBe('leetcode');
+    await fireEvent.keyDown(input, { key: 'Tab' });
+    expect(input.value).toBe('linkedin');
+    await fireEvent.keyDown(input, { key: 'Tab' });
+    expect(input.value).toBe('leetcode');
+  });
+
+  // TODO up and down arrows cycling through previous commands
 });

@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { commandList } from '../../stores/commandList';
-  import { verifyCommand } from '../../utils/terminal';
+  import { verifyCommand, verifyTab } from '../../utils/terminal';
 
   let input: HTMLInputElement;
+  let suggestedInputs = [];
+  let activeSuggestion: number;
 
   onMount(() => input.focus());
 
@@ -25,6 +27,29 @@
     }
     input.value = '';
   };
+
+  const handleTab = (e: KeyboardEvent) => {
+    if (e.key !== 'Tab') {
+      activeSuggestion = 0;
+      suggestedInputs = [];
+      return;
+    }
+    e.preventDefault();
+    if (suggestedInputs.length) {
+      if (suggestedInputs.length - 1 === activeSuggestion) activeSuggestion = 0;
+      else activeSuggestion += 1;
+      input.value = suggestedInputs[activeSuggestion];
+      return;
+    }
+    const res = verifyTab(input.value);
+    if (res.length === 0) return;
+    else if (res.length === 1) input.value = res[0];
+    else {
+      suggestedInputs = res;
+      input.value = res[0];
+      activeSuggestion = 0;
+    }
+  };
 </script>
 
 <form on:submit|preventDefault={handleCommand}>
@@ -34,6 +59,7 @@
     on:blur={() => input.focus()}
     spellcheck="false"
     autocomplete="false"
+    on:keydown={handleTab}
   />
 </form>
 

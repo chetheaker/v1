@@ -63,3 +63,22 @@ export const verifyCommand = (command: string) => {
     };
   }
 };
+
+export const verifyTab = (input: string) => {
+  const res = [];
+  if (!input) return res;
+  if (verifyWord('clear', input)) res.push('clear');
+  if (verifyWord('github', input)) res.push('github');
+  if (verifyWord('help', input)) res.push('help');
+  if (verifyWord('leetcode', input)) res.push('leetcode');
+  if (verifyWord('linkedin', input)) res.push('linkedin');
+  if (verifyWord('start', input)) res.push('start');
+  return res;
+};
+
+const verifyWord = (command: string, input: string) => {
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] !== command[i]) return false;
+  }
+  return true;
+};
