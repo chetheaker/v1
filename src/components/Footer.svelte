@@ -1,3 +1,4 @@
+<hr />
 <footer>
   <div class="left">
     <a href="mailto:che.theaker@gmail.com" target="_blank">
@@ -15,7 +16,7 @@
     </a>
   </div>
   <div class="right">
-    <p>Developed by Che Theaker</p>
+    <p>Made with Svelte</p>
     <a href="https://github.com/chetheaker/v1" target="_blank" rel="noreferrer">
       <i class="fa-solid fa-code-branch" />
     </a>
@@ -27,7 +28,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 3rem 1rem 1rem 1rem;
+  }
+
+  hr {
+    width: 50%;
+    margin: auto;
+    margin-top: 2rem;
+    border: solid 1px #161b22;
   }
 
   .left,
@@ -53,5 +61,24 @@
   a:hover {
     color: white;
     transform: translateY(-20%);
+  }
+
+  @media only screen and (max-width: 400px) {
+    i {
+      font-size: 1.25rem;
+    }
+
+    .left {
+      justify-content: flex-start;
+      width: auto;
+    }
+
+    .right {
+      width: auto;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
   }
 </style>
