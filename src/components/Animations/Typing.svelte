@@ -11,7 +11,6 @@
   function typewriter(node, { speed = 10 }) {
     const text = node.textContent;
     const duration = text.length / (speed * 0.01);
-    console.log(element, duration);
 
     return {
       duration,

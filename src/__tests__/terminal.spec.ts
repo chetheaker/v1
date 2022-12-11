@@ -2,6 +2,7 @@ import Terminal__SvelteComponent_ from '../components/Terminal/Terminal.svelte';
 import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/svelte';
 import { commandList } from '../stores/commandList';
+import { inputCommands } from '../stores/inputCommands';
 
 const beforeEach = async (inputStr: string) => {
   const { container, getByRole, findAllByText } = render(
@@ -200,5 +201,30 @@ describe('Terminal', () => {
     expect(input.value).toBe('leetcode');
   });
 
-  // TODO up and down arrows cycling through previous commands
+  it('should add each input to the inputCommands store', async () => {
+    let inputCommandsStore;
+    inputCommands.subscribe((value) => (inputCommandsStore = value));
+
+    expect(inputCommandsStore[0]).toBe('test input');
+    expect(inputCommandsStore[2]).toBe('chevron test');
+    expect(inputCommandsStore[6]).toBe('clear');
+    expect(inputCommandsStore[7]).toBe('start');
+    expect(inputCommandsStore.length).toBe(18);
+  });
+
+  it('should toggle input value to historical values on up and down arrow', async () => {
+    const { getByRole } = await beforeEach('latest');
+    const input = getByRole('textbox') as HTMLInputElement;
+
+    await fireEvent.keyDown(input, { key: 'ArrowUp' });
+    expect(input.value).toBe('latest');
+    await fireEvent.keyDown(input, { key: 'ArrowUp' });
+    expect(input.value).toBe('clear');
+    await fireEvent.keyDown(input, { key: 'ArrowDown' });
+    expect(input.value).toBe('latest');
+    await fireEvent.keyDown(input, { key: 'ArrowDown' });
+    expect(input.value).toBe('');
+    await fireEvent.keyDown(input, { key: 'ArrowDown' });
+    expect(input.value).toBe('');
+  });
 });

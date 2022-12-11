@@ -1,16 +1,21 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { commandList } from '../../stores/commandList';
+  import { inputCommands } from '../../stores/inputCommands';
   import { verifyCommand, verifyTab } from '../../utils/terminal';
 
   let input: HTMLInputElement;
   let suggestedInputs = [];
   let activeSuggestion: number;
+  let activeInputIndex = $inputCommands.length;
+  let tempValue = '';
 
   onMount(() => input.focus());
 
   const handleCommand = () => {
     if (!input.value) return;
+    inputCommands.update((prev) => [...prev, input.value]);
+    activeInputIndex++;
     if (input.value === 'clear') {
       commandList.set([]);
     } else {
@@ -28,13 +33,7 @@
     input.value = '';
   };
 
-  const handleTab = (e: KeyboardEvent) => {
-    if (e.key !== 'Tab') {
-      activeSuggestion = 0;
-      suggestedInputs = [];
-      return;
-    }
-    e.preventDefault();
+  const handleTab = () => {
     if (suggestedInputs.length) {
       if (suggestedInputs.length - 1 === activeSuggestion) activeSuggestion = 0;
       else activeSuggestion += 1;
@@ -50,16 +49,53 @@
       activeSuggestion = 0;
     }
   };
+
+  const handleUp = () => {
+    if (activeInputIndex === $inputCommands.length) {
+      tempValue = input.value;
+    }
+    if (activeInputIndex !== 0) {
+      activeInputIndex--;
+    }
+    input.value = $inputCommands[activeInputIndex];
+  };
+
+  const handleDown = () => {
+    if (activeInputIndex < $inputCommands.length - 1) {
+      activeInputIndex++;
+      input.value = $inputCommands[activeInputIndex];
+    } else {
+      if ($inputCommands.length - 1 === activeInputIndex) activeInputIndex++;
+      input.value = tempValue;
+    }
+  };
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key !== 'Tab') {
+      activeSuggestion = 0;
+      suggestedInputs = [];
+      if (!$inputCommands.length) return;
+      if (e.key === 'ArrowUp') {
+        handleUp();
+      } else if (e.key === 'ArrowDown') {
+        handleDown();
+      }
+    } else {
+      e.preventDefault();
+      handleTab();
+    }
+  };
 </script>
 
 <form on:submit|preventDefault={handleCommand}>
   <i class="fa-solid fa-chevron-right" />
   <input
+    type="text"
     bind:this={input}
     on:blur={() => input.focus()}
     spellcheck="false"
     autocomplete="false"
-    on:keydown={handleTab}
+    on:keydown={handleKeyDown}
   />
 </form>
 
