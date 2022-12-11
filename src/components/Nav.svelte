@@ -5,15 +5,16 @@
 </script>
 
 <nav>
-  <div class="left">
-    <div class="logo" />
+  <div class="links">
+    <a href="#about"><span>ABOUT</span></a>
+    <a href="#skills"><span>SKILLS</span></a>
+    <a href="#experience"><span>EXPERIENCE</span></a>
+    <a href="#contact"><span>CONTACT</span></a>
   </div>
-  <div class="right">
-    <button class="terminal" on:click={handleTerminal}>
-      <i class="fa-solid fa-circle-chevron-left" />
-      <span class="terminal-text">Terminal</span>
-    </button>
-  </div>
+  <button class="terminal" on:click={handleTerminal}>
+    <i class="fa-solid fa-circle-chevron-left" />
+    <span class="terminal-text">Terminal</span>
+  </button>
 </nav>
 
 <style>
@@ -30,10 +31,60 @@
     top: 0;
   }
 
-  .right {
+  button > span {
+    color: #0e1117;
+  }
+
+  i {
+    color: #0e1117;
+  }
+
+  .links {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 100%;
+    width: 46.5%;
+    margin-left: 3.5%;
+    gap: 1rem;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+  }
+
+  a:hover {
+    color: #ccd6f6;
+  }
+
+  a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    position: absolute;
+    transition: all 0.2s linear;
+    background: #ccd6f6;
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+
+  a::after {
+    left: 0;
+    bottom: 0;
+    transition-delay: 0s;
+  }
+
+  a:hover::after {
+    transition-delay: 0s;
+  }
+  a:hover span::after {
+    transition-delay: 0.2s;
   }
 
   .terminal {

@@ -28,13 +28,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3rem 1rem 1rem 1rem;
+    min-height: 15vh;
   }
 
   hr {
     width: 50%;
     margin: auto;
-    margin-top: 2rem;
     border: solid 1px #161b22;
   }
 
@@ -64,6 +63,9 @@
   }
 
   @media only screen and (max-width: 400px) {
+    footer {
+      margin: auto 2rem;
+    }
     i {
       font-size: 1.25rem;
     }

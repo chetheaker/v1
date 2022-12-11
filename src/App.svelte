@@ -1,7 +1,11 @@
 <script lang="ts">
+  import About from './components/About.svelte';
   import Contact from './components/Contact.svelte';
+  import Experience from './components/Experience.svelte';
   import Footer from './components/Footer.svelte';
+  import Hero from './components/Hero.svelte';
   import Nav from './components/Nav.svelte';
+  import Skills from './components/Skills.svelte';
   import Terminal from './components/Terminal/Terminal.svelte';
 </script>
 
@@ -13,6 +17,18 @@
 </svelte:head>
 
 <Nav />
+<Hero />
 <Terminal />
-<Contact />
-<Footer />
+<About />
+<Skills />
+<Experience />
+<div>
+  <Contact />
+  <Footer />
+</div>
+
+<style>
+  div {
+    scroll-snap-align: center;
+  }
+</style>

@@ -39,6 +39,15 @@
   src: url('assets/fonts/Mona-Sans.woff') format('woff');
 }
 
+* {
+  scroll-margin-top: 10vh;
+}
+
+#app {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
 body {
   margin: 0;
   padding: 0;

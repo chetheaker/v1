@@ -30,8 +30,8 @@
   section {
     display: flex;
     width: 80%;
+    height: 75vh;
     margin: auto;
-    margin-top: 3rem;
     align-items: center;
     justify-content: center;
     gap: 10%;
