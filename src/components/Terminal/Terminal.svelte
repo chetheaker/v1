@@ -1,17 +1,22 @@
 <script lang="ts">
-  import App from '../../App.svelte';
   import TerminalContainer from './TerminalContainer.svelte';
   import TerminalInput from './TerminalInput.svelte';
   import TopBar from './TopBar.svelte';
+  import { onMount } from 'svelte';
+  let mounted = false;
+
+  onMount(() => (mounted = true));
 </script>
 
-<section>
-  <TopBar />
-  <div class="terminal">
-    <TerminalContainer />
-    <TerminalInput />
-  </div>
-</section>
+{#key mounted}
+  <section>
+    <TopBar />
+    <div class="terminal">
+      <TerminalContainer />
+      <TerminalInput />
+    </div>
+  </section>
+{/key}
 
 <style>
   section {

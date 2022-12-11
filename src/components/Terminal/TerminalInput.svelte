@@ -92,7 +92,6 @@
   <input
     type="text"
     bind:this={input}
-    on:blur={() => input.focus()}
     spellcheck="false"
     autocomplete="false"
     on:keydown={handleKeyDown}

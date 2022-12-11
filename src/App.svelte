@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Contact from './components/Contact.svelte';
+  import Footer from './components/Footer.svelte';
   import Nav from './components/Nav.svelte';
   import Terminal from './components/Terminal/Terminal.svelte';
 </script>
@@ -12,3 +14,5 @@
 
 <Nav />
 <Terminal />
+<Contact />
+<Footer />
