@@ -5,7 +5,25 @@
   import { onMount } from 'svelte';
   let mounted = false;
 
+  let keys = {};
+  let input;
+
   onMount(() => (mounted = true));
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    keys[e.key] = true;
+    if (keys.Control && keys['`']) {
+      window.location.hash = 'terminal';
+      input.focus();
+    }
+  };
+
+  const handleKeyUp = (e: KeyboardEvent) => {
+    delete keys[e.key];
+  };
+
+  document.addEventListener('keydown', handleKeyDown);
+  document.addEventListener('keyup', handleKeyUp);
 </script>
 
 {#key mounted}
@@ -13,7 +31,7 @@
     <TopBar />
     <div class="terminal">
       <TerminalContainer />
-      <TerminalInput />
+      <TerminalInput bind:input />
     </div>
   </section>
 {/key}

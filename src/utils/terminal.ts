@@ -21,16 +21,24 @@ class HelpCommand {
 
 const helpCommands = [
   new HelpCommand('here are some commands to run:', 0, false),
-  new HelpCommand('start - show start message', 300, true),
-  new HelpCommand('clear - clear terminal', 600, true),
-  new HelpCommand('github - show github profile', 900, true),
-  new HelpCommand('linkedin - show linkedin profile', 1200, true),
-  new HelpCommand('leetcode - show leetcode profile', 1500, true),
+  new HelpCommand('ls - show web pages', 300, true),
+  new HelpCommand('start - show start message', 600, true),
+  new HelpCommand('clear - clear terminal', 900, true),
+  new HelpCommand('github - show github profile', 1200, true),
+  new HelpCommand('linkedin - show linkedin profile', 1500, true),
+  new HelpCommand('leetcode - show leetcode profile', 1800, true),
+  new HelpCommand('Control + ` brings up the terminal', 2100, false),
   new HelpCommand(
     '––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––',
-    1800,
+    2100,
     false
   )
+];
+
+const lsCommands = [
+  new HelpCommand('about', 0, true),
+  new HelpCommand('experience', 100, true),
+  new HelpCommand('contact', 200, true)
 ];
 
 export const verifyCommand = (command: string) => {
@@ -49,7 +57,29 @@ export const verifyCommand = (command: string) => {
       return helpCommands;
     case 'start':
       return initialMessage;
+    case 'ls':
+      return lsCommands;
+    case 'code about':
+      window.location.hash = 'about';
+      return;
+    case 'code experience':
+      window.location.hash = 'experience';
+      return;
+    case 'code contact':
+      window.location.hash = 'contact';
+      return;
     default:
+      if (
+        command.includes('about') ||
+        command.includes('experience') ||
+        command.includes('contact')
+      ) {
+        return {
+          isValid: false,
+          isInput: false,
+          content: command + ` ~ Did you mean: code ${command}`
+        };
+      }
       return { isValid: false, isInput: false, content: command };
   }
 
@@ -68,10 +98,14 @@ export const verifyTab = (input: string) => {
   const res = [];
   if (!input) return res;
   if (verifyWord('clear', input)) res.push('clear');
+  if (verifyWord('code about', input)) res.push('code about');
+  if (verifyWord('code experience', input)) res.push('code experience');
+  if (verifyWord('code contact', input)) res.push('code contact');
   if (verifyWord('github', input)) res.push('github');
   if (verifyWord('help', input)) res.push('help');
   if (verifyWord('leetcode', input)) res.push('leetcode');
   if (verifyWord('linkedin', input)) res.push('linkedin');
+  if (verifyWord('ls', input)) res.push('ls');
   if (verifyWord('start', input)) res.push('start');
   return res;
 };

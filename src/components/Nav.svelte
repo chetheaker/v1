@@ -19,7 +19,6 @@
 <nav>
   <div class="links" bind:this={links}>
     <a href="#about" on:click={closeBurgerMenu}><span>ABOUT</span></a>
-    <a href="#skills" on:click={closeBurgerMenu}><span>SKILLS</span></a>
     <a href="#experience" on:click={closeBurgerMenu}><span>EXPERIENCE</span></a>
     <a href="#contact" on:click={closeBurgerMenu}><span>CONTACT</span></a>
   </div>
@@ -68,8 +67,8 @@
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    width: 46.5%;
-    margin-left: 3.5%;
+    width: 40%;
+    margin-left: 10%;
     gap: 1rem;
   }
 
@@ -198,6 +197,7 @@
       background-color: white;
       height: 500px;
       width: 90%;
+      margin: 0 5%;
       transform: translateY(10%) scale(0);
       transition: transform 300ms ease;
       border-radius: 2rem;

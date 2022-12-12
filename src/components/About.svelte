@@ -139,6 +139,9 @@
     .paras {
       width: auto;
     }
+    .skills {
+      height: 70%;
+    }
   }
 
   @media only screen and (max-width: 350px) {

@@ -4,7 +4,7 @@
   import { inputCommands } from '../../stores/inputCommands';
   import { verifyCommand, verifyTab } from '../../utils/terminal';
 
-  let input: HTMLInputElement;
+  export let input: HTMLInputElement;
   let suggestedInputs = [];
   let activeSuggestion: number;
   let activeInputIndex = $inputCommands.length;
@@ -26,9 +26,12 @@
       };
       if (Array.isArray(response)) {
         commandList.update((prev) => [...prev, newCommand, ...response]);
-      } else {
+      } else if (response) {
         commandList.update((prev) => [...prev, newCommand, response]);
+      } else {
+        commandList.update((prev) => [...prev, newCommand]);
       }
+      console.log($commandList);
     }
     input.value = '';
   };
