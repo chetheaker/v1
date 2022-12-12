@@ -1,9 +1,6 @@
 <script lang="ts">
   let hamburger;
   let links;
-  const handleTerminal = () => {
-    console.log('terminal');
-  };
 
   const handleHamburger = () => {
     hamburger.classList.toggle('is-active');
@@ -33,7 +30,7 @@
     </span>
   </button>
   <a href="#terminal" class="terminal-link">
-    <button class="terminal" on:click={handleTerminal}>
+    <button class="terminal">
       <i class="fa-solid fa-circle-chevron-left" />
       <span class="terminal-text">Terminal</span>
     </button>

@@ -31,7 +31,6 @@
       } else {
         commandList.update((prev) => [...prev, newCommand]);
       }
-      console.log($commandList);
     }
     input.value = '';
   };

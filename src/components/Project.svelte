@@ -185,6 +185,12 @@
     font-size: 1.5rem;
   }
 
+  @media only screen and (min-width: 1250px) {
+    .content {
+      font-size: 1.2rem;
+    }
+  }
+
   @media only screen and (max-width: 1100px) {
     .content {
       width: 95%;
