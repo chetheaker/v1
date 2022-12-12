@@ -1,3 +1,6 @@
+import tourifyImg from '../assets/icons/tourify1.png';
+import adopetImg from '../assets/icons/adopet1.png';
+import findleImg from '../assets/icons/findle1.png';
 export const tourify = {
   name: 'TOURIFY',
   heading:
@@ -16,7 +19,7 @@ export const tourify = {
     'Stripe',
     'MongoDB'
   ],
-  src: 'src/assets/icons/tourify1.png',
+  src: tourifyImg,
   alt: 'tourify demo',
   github: 'https://github.com/chetheaker/tourify',
   website: 'https://tourify.me'
@@ -39,7 +42,7 @@ export const adopet = {
     'Cloudinary',
     'Cypress'
   ],
-  src: 'src/assets/icons/adopet1.png',
+  src: adopetImg,
   alt: 'adopet demo',
   github: 'https://github.com/adopet-github/adopet',
   website: 'https://www.adopet.live/'
@@ -62,7 +65,7 @@ export const findle = {
     'Cypress',
     'Firebase'
   ],
-  src: 'src/assets/icons/findle1.png',
+  src: findleImg,
   alt: 'findle preview',
   github: 'https://github.com/chetheaker/findle',
   website: 'https://findle.live'
