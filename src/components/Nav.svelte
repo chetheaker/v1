@@ -52,6 +52,7 @@
     -webkit-backdrop-filter: blur(12.5px);
     position: sticky;
     top: 0;
+    z-index: 999;
   }
 
   button > span {

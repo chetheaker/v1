@@ -134,5 +134,4 @@ button {
 .skill:hover {
   transform: scale(1.3) !important;
   opacity: 1 !important;
-  z-index: 100;
 }

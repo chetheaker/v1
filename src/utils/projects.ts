@@ -3,18 +3,16 @@ export const tourify = {
   heading:
     'Tourify is an all-in-one road trip application to help you plan and organise your road trips from scratch.',
   content: [
-    'I built this full-stack application from the ground up, carefully designing and implementing more than 50+ components throughout the frontend in React and the backend in Node and Express.',
-    'I also leveraged multiple APIs, allowing for efficient data exchange under the hood, resulting in a seamless user experience.',
-    'Through careful planning and execution, I was able to create a complete, end-to-end application.'
+    'I built this full-stack application from the ground up, designing and implementing more than 50+ components throughout the frontend and the backend.',
+    'I leveraged multiple APIs, allowing for efficient data exchange under the hood, resulting in a seamless UX.'
   ],
   skills: [
     'JavaScript',
     'React',
-    'Chakra UI',
     'Google Maps API',
-    'NodeJS',
-    'ExpressJS',
-    'PassportJS',
+    'Node',
+    'Express',
+    'Passport',
     'Stripe',
     'MongoDB'
   ],
@@ -29,9 +27,8 @@ export const adopet = {
   heading:
     'Adopet is a web app to make easier to animal shelters to find a new home for their animals.',
   content: [
-    'I played a key role, within a team of 4 taking advantage of agile methodologies, in building the frontend UI of the website in Svelte from scratch.',
-    'As a frontend engineer, I developed a complex state management system to ensure efficient handling of real-time data, as well as implementing WebSockets with Socket.io.',
-    'I collaborated closely with the backend team to integrate APIs and deliver a seamless and enjoyable user experience.'
+    'I role within a team of 4 was to in build the frontend UI of the website in Svelte from scratch.',
+    'I developed a complex state management system to ensure efficient handling of real-time data, as well as implementing WebSockets with Socket.io.'
   ],
   skills: [
     'TypeScript',
@@ -51,10 +48,10 @@ export const adopet = {
 export const findle = {
   name: 'FINDLE',
   heading:
-    'A fun daily game! Guess the prompt of a series of AI generated images and mint your unique NFT on the Solana Blockchain.',
+    'Guess the prompt of a series of AI generated images and mint your unique NFT on the Solana Blockchain.',
   content: [
-    'Within a team of 4, we built the frontend in React, leveraging its component-based architecture and powerful rendering capabilities to create a smooth and engaging user experience.',
-    'On the backend, I had the ability to become proficient in Firebase, introducing multiple features such as authentication, handling data storage with Firestore and hosting, allowing for seamless interaction between the frontend and backend components, create a secure and scalable application.'
+    'Within a team of 4, I constructed the frontend in React, leveraging its component-based architecture and powerful rendering capabilities to create an engaging UX.',
+    'On the backend, I used Firebase, introducing multiple features such as authentication, data storage and hosting, to create a secure and scalable application.'
   ],
   skills: [
     'TypeScript',

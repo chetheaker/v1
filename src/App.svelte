@@ -3,7 +3,6 @@
   import Contact from './components/Contact.svelte';
   import Experience from './components/Experience.svelte';
   import Footer from './components/Footer.svelte';
-  import Hero from './components/Hero.svelte';
   import Nav from './components/Nav.svelte';
   import Terminal from './components/Terminal/Terminal.svelte';
 </script>
@@ -16,7 +15,6 @@
 </svelte:head>
 
 <Nav />
-<Hero />
 <Terminal />
 <About />
 <Experience />

@@ -2,7 +2,7 @@ export const initialMessage = {
   isValid: true,
   isInput: false,
   content:
-    "Hi there 👋! I'm Che Theaker, a full stack developer. Welcome to my terminal, type a command to get started... for a list of commands type 'help'"
+    "Hi there 👋! I'm Che Theaker, a full stack developer. Welcome to my website, type a command to get started... for a list of commands, type: 'help'"
 };
 
 class HelpCommand {
@@ -21,7 +21,7 @@ class HelpCommand {
 
 const helpCommands = [
   new HelpCommand('here are some commands to run:', 0, false),
-  new HelpCommand('ls - show web pages', 300, true),
+  new HelpCommand('ls - list web pages', 300, true),
   new HelpCommand('start - show start message', 600, true),
   new HelpCommand('clear - clear terminal', 900, true),
   new HelpCommand('github - show github profile', 1200, true),

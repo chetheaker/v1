@@ -20,20 +20,14 @@
       <button class="btn-left" on:click={() => dispatchScroll('left')}
         ><i class="fa-solid fa-angles-left" /></button
       >
+    {:else}
+      <div class="placeholder" />
     {/if}
     <div class="project" id="tourify">
       <div class="left">
         <div class="content">
           {#each project.content as paragraph}
             <p>{paragraph}</p>
-          {/each}
-        </div>
-        <div class="skills">
-          {#each project.skills as skill, i}
-            {#if i !== 0}
-              <i class="fa-solid fa-circle" />
-            {/if}
-            <p>{skill}</p>
           {/each}
         </div>
       </div>
@@ -45,15 +39,27 @@
       <button class="btn-left" on:click={() => dispatchScroll('right')}
         ><i class="fa-solid fa-angles-right" /></button
       >
+    {:else}
+      <div class="placeholder" />
     {/if}
   </div>
-  <div class="buttons">
-    <a href={project.github} target="_blank" rel="noreferrer">
-      <i class="fa-brands fa-github" />
-    </a>
-    <a href={project.website} target="_blank" rel="noreferrer">
-      <i class="fa-solid fa-link" />
-    </a>
+  <div class="bottom">
+    <div class="skills">
+      {#each project.skills as skill, i}
+        {#if i !== 0}
+          <i class="fa-solid fa-circle" />
+        {/if}
+        <p>{skill}</p>
+      {/each}
+    </div>
+    <div class="buttons">
+      <a href={project.github} target="_blank" rel="noreferrer">
+        <i class="fa-brands fa-github" />
+      </a>
+      <a href={project.website} target="_blank" rel="noreferrer">
+        <i class="fa-solid fa-link" />
+      </a>
+    </div>
   </div>
 </div>
 
@@ -73,6 +79,11 @@
     color: #ccd6f6;
   }
 
+  .heading {
+    width: 80%;
+    text-align: center;
+  }
+
   .middle {
     width: 100%;
     display: flex;
@@ -83,10 +94,15 @@
   .btn-left {
     color: white;
     background-color: transparent;
+    width: 50px;
   }
 
   .btn-left i {
     font-size: 2.5rem;
+  }
+
+  .placeholder {
+    width: 50px;
   }
 
   .project {
@@ -100,7 +116,7 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     aspect-ratio: 1.6;
   }
 
@@ -109,9 +125,11 @@
     background-color: #161b22;
     border-radius: 1rem;
     width: 90%;
+    height: 100%;
     text-align: justify;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     gap: 0.5rem;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   }
@@ -119,10 +137,8 @@
   .skills {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     gap: 1rem;
-    width: 90%;
   }
 
   .skills i {
@@ -142,13 +158,19 @@
     border-radius: inherit;
   }
 
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    gap: 2rem;
+  }
+
   .buttons {
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
-    padding: 0 10%;
   }
 
   .buttons a {
@@ -161,5 +183,66 @@
 
   .buttons i {
     font-size: 1.5rem;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .content {
+      width: 95%;
+      font-size: 0.9rem;
+    }
+    .bottom {
+      flex-direction: column;
+    }
+    .skills {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .image {
+      display: none;
+    }
+    .left {
+      width: 100%;
+      aspect-ratio: unset;
+      align-items: center;
+    }
+    .skills {
+      gap: 0.2rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  @media only screen and (max-height: 850px) {
+    .container {
+      gap: 1.5rem;
+    }
+    .bottom {
+      gap: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+
+    .heading {
+      font-size: 1rem;
+    }
+
+    .skills {
+      font-size: 0.8rem;
+    }
+    .skills i {
+      font-size: 0.3rem;
+    }
+  }
+
+  @media only screen and (max-height: 700px) {
+    .container {
+      gap: 0.3rem;
+    }
+    .bottom {
+      gap: 0.5rem;
+    }
   }
 </style>
