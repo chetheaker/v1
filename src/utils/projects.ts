@@ -16,7 +16,7 @@ export const tourify = {
     'Stripe',
     'MongoDB'
   ],
-  src: 'src/assets/mocks/tourify1.png',
+  src: 'src/assets/icons/tourify1.png',
   alt: 'tourify demo',
   github: 'https://github.com/chetheaker/tourify',
   website: 'https://tourify.me'
@@ -39,7 +39,7 @@ export const adopet = {
     'Cloudinary',
     'Cypress'
   ],
-  src: 'src/assets/mocks/adopet1.png',
+  src: 'src/assets/icons/adopet1.png',
   alt: 'adopet demo',
   github: 'https://github.com/adopet-github/adopet',
   website: 'https://www.adopet.live/'
@@ -62,7 +62,7 @@ export const findle = {
     'Cypress',
     'Firebase'
   ],
-  src: 'src/assets/mocks/findle1.png',
+  src: 'src/assets/icons/findle1.png',
   alt: 'findle preview',
   github: 'https://github.com/chetheaker/findle',
   website: 'https://findle.live'
