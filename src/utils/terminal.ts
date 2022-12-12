@@ -2,7 +2,7 @@ export const initialMessage = {
   isValid: true,
   isInput: false,
   content:
-    "welcome to the terminal, type a command to get started... for a list of commands type 'help'"
+    "Hi there 👋! I'm Che Theaker, a full stack developer. Welcome to my terminal, type a command to get started... for a list of commands type 'help'"
 };
 
 class HelpCommand {

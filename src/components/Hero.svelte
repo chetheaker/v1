@@ -1,4 +1,7 @@
-<section id="hero">HERO</section>
+<section id="hero">
+  <h2>Hi there 👋! I'm</h2>
+  <h1>CHE</h1>
+</section>
 
 <style>
   section {

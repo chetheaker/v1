@@ -5,7 +5,6 @@
   import Footer from './components/Footer.svelte';
   import Hero from './components/Hero.svelte';
   import Nav from './components/Nav.svelte';
-  import Skills from './components/Skills.svelte';
   import Terminal from './components/Terminal/Terminal.svelte';
 </script>
 
@@ -20,7 +19,6 @@
 <Hero />
 <Terminal />
 <About />
-<Skills />
 <Experience />
 <div>
   <Contact />

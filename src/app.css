@@ -128,3 +128,11 @@ button {
 .show-mobile-nav {
   transform: translateY(60%) scale(1) !important;
 }
+
+/* SKILLS */
+.skill.active,
+.skill:hover {
+  transform: scale(1.3) !important;
+  opacity: 1 !important;
+  z-index: 100;
+}
