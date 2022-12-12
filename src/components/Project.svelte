@@ -1,59 +1,57 @@
+<script lang="ts">
+  import { createEventDispatcher } from 'svelte';
+  export let project;
+  export let end: false | 'start' | 'finish' = false;
+
+  const dispatch = createEventDispatcher();
+
+  const dispatchScroll = (direction: string) => {
+    dispatch('scroll', {
+      direction
+    });
+  };
+</script>
+
 <div class="container">
-  <h1>TOURIFY</h1>
-  <h3 class="heading">
-    Tourify is an all-in-one road trip application to help you plan and organise
-    your road trips from scratch.
-  </h3>
-  <div class="project" id="tourify">
-    <div class="left">
-      <div class="content">
-        <p>
-          I built this full-stack application from the ground up, carefully
-          designing and implementing more than 50+ components throughout the
-          frontend in React and the backend in Node and Express.
-        </p>
-        <p>
-          I also leveraged multiple APIs, allowing for efficient data exchange
-          under the hood, resulting in a seamless user experience.
-        </p>
-        <p>
-          Through careful planning and execution, I was able to create a
-          complete, end-to-end application.
-        </p>
+  <h1>{project.name}</h1>
+  <h3 class="heading">{project.heading}</h3>
+  <div class="middle">
+    {#if end !== 'start'}
+      <button class="btn-left" on:click={() => dispatchScroll('left')}
+        ><i class="fa-solid fa-angles-left" /></button
+      >
+    {/if}
+    <div class="project" id="tourify">
+      <div class="left">
+        <div class="content">
+          {#each project.content as paragraph}
+            <p>{paragraph}</p>
+          {/each}
+        </div>
+        <div class="skills">
+          {#each project.skills as skill, i}
+            {#if i !== 0}
+              <i class="fa-solid fa-circle" />
+            {/if}
+            <p>{skill}</p>
+          {/each}
+        </div>
       </div>
-      <div class="skills">
-        <p>JavaScript</p>
-        <i class="fa-solid fa-circle" />
-        <p>React</p>
-        <i class="fa-solid fa-circle" />
-        <p>Chakra UI</p>
-        <i class="fa-solid fa-circle" />
-        <p>Google Maps API</p>
-        <i class="fa-solid fa-circle" />
-        <p>NodeJS</p>
-        <i class="fa-solid fa-circle" />
-        <p>ExpressJS</p>
-        <i class="fa-solid fa-circle" />
-        <p>PassportJS</p>
-        <i class="fa-solid fa-circle" />
-        <p>Stripe</p>
-        <i class="fa-solid fa-circle" />
-        <p>MongoDB</p>
+      <div class="image">
+        <img src={project.src} alt={project.alt} />
       </div>
     </div>
-    <div class="image">
-      <img src="src/assets/mocks/tourify1.png" alt="tourify demo" />
-    </div>
+    {#if end !== 'finish'}
+      <button class="btn-left" on:click={() => dispatchScroll('right')}
+        ><i class="fa-solid fa-angles-right" /></button
+      >
+    {/if}
   </div>
   <div class="buttons">
-    <a
-      href="https://github.com/chetheaker/tourify"
-      target="_blank"
-      rel="noreferrer"
-    >
+    <a href={project.github} target="_blank" rel="noreferrer">
       <i class="fa-brands fa-github" />
     </a>
-    <a href="https://tourify.me" target="_blank" rel="noreferrer">
+    <a href={project.website} target="_blank" rel="noreferrer">
       <i class="fa-solid fa-link" />
     </a>
   </div>
@@ -66,17 +64,36 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    min-width: 100%;
     gap: 3rem;
+    scroll-snap-align: center;
   }
 
   h1 {
     color: #ccd6f6;
   }
 
+  .middle {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .btn-left {
+    color: white;
+    background-color: transparent;
+  }
+
+  .btn-left i {
+    font-size: 2.5rem;
+  }
+
   .project {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 80%;
   }
 
   .left {
@@ -96,6 +113,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   }
 
   .skills {
@@ -130,6 +148,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
+    padding: 0 10%;
   }
 
   .buttons a {
