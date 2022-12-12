@@ -9,7 +9,7 @@
 </script>
 
 {#key mounted}
-  <section>
+  <section id="terminal">
     <TopBar />
     <div class="terminal">
       <TerminalContainer />
